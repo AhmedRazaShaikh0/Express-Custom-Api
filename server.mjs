@@ -1,4 +1,6 @@
 import express from "express";
+import cors from "cors";
+
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -19,6 +21,8 @@ const Quotes = [
   "If you want to achieve greatness stop asking for permission. - Anonymous",
   "The only person you should try to be better than is the person you were yesterday. - Anonymous",
 ];
+
+app.use(cors());
 
 app.get("/", (req, res) => {
   const randomIndex = Math.floor(Math.random() * Quotes.length);
