@@ -1,6 +1,6 @@
-import express from 'express';
+import express from "express";
 const app = express();
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3000;
 
 const Quotes = [
   "The only way to do great work is to love what you do. - Steve Jobs",
@@ -17,13 +17,13 @@ const Quotes = [
   "You miss 100% of the shots you don't take. - Wayne Gretzky",
   "The journey of a thousand miles begins with one step. - Lao Tzu",
   "If you want to achieve greatness stop asking for permission. - Anonymous",
-  "The only person you should try to be better than is the person you were yesterday. - Anonymous"
+  "The only person you should try to be better than is the person you were yesterday. - Anonymous",
 ];
 
-app.get('/', (req, res) => {
+app.get("/", (req, res) => {
   const randomIndex = Math.floor(Math.random() * Quotes.length);
   const randomQuote = Quotes[randomIndex];
-  res.send(randomQuote);
+  res.send({ message: randomQuote });
 });
 
 app.listen(port, () => {
